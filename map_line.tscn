@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1lvlhpy6wknd"]
+
+[ext_resource type="Texture2D" uid="uid://4xxwq4x2vftg" path="res://icon.svg" id="1_nkss3"]
+
+[node name="MapLine" type="Line2D"]
+modulate = Color(0.274121, 0.474365, 0.969091, 1)
+texture_repeat = 2
+default_color = Color(0.768729, 0.768729, 0.768729, 1)
+texture = ExtResource("1_nkss3")
+texture_mode = 1

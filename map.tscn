@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3atgsx1mi3fv"]
+
+[ext_resource type="Script" path="res://map.gd" id="1_cbfc1"]
+[ext_resource type="Script" path="res://map_generator.gd" id="1_nsrs7"]
+
+[sub_resource type="Gradient" id="Gradient_qw3w3"]
+offsets = PackedFloat32Array(0, 0.535766, 0.832117, 0.99708)
+colors = PackedColorArray(0.00261779, 0.00261779, 0.00261779, 1, 0.321728, 0.321728, 0.321728, 1, 0.349689, 0.349689, 0.349689, 1, 0.0295066, 0.0295066, 0.0295066, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_groco"]
+gradient = SubResource("Gradient_qw3w3")
+width = 50
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_cbfc1")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Lines" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+
+[node name="Rooms" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(360, 640)
+
+[node name="Label" type="Label" parent="Camera2D"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="MapGenerator" type="Node" parent="."]
+script = ExtResource("1_nsrs7")
+
+[node name="MapBackground" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="MapBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_groco")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "BACK"

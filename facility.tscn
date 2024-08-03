@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://o6mqsgts57j7"]
+
+[ext_resource type="Script" path="res://facility.gd" id="1_me26m"]
+[ext_resource type="Script" path="res://resource_data.gd" id="3_omkxe"]
+[ext_resource type="PackedScene" uid="uid://b34guu313kt8l" path="res://resource.tscn" id="3_x05ig"]
+[ext_resource type="PackedScene" uid="uid://bajhex4ow34r3" path="res://back.tscn" id="4_klbvo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqvkd"]
+bg_color = Color(0.207164, 0.203577, 0.726353, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
+border_blend = true
+
+[node name="Facility" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_me26m")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kqvkd")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1075
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "CAVE
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResourceManager" type="Node" parent="Panel/MarginContainer/VBoxContainer"]
+script = ExtResource("3_omkxe")
+resources = {
+"metal": {
+"amount": 0,
+"dependencies": {
+"ore": 5
+},
+"max": 5
+},
+"ore": {
+"amount": 0,
+"dependencies": {},
+"max": 5
+}
+}
+
+[node name="mainContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ResourceManager"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 111
+
+[node name="Ore" parent="Panel/MarginContainer/VBoxContainer/ResourceManager/mainContainer" instance=ExtResource("3_x05ig")]
+layout_mode = 2
+
+[node name="Metal" parent="Panel/MarginContainer/VBoxContainer/ResourceManager/mainContainer" instance=ExtResource("3_x05ig")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Back" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_klbvo")]
+layout_mode = 2
