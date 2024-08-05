@@ -5,6 +5,7 @@ var main = null
 var resource_keys = null
 
 func _ready():
+	print(resources)
 	main = get_node("mainContainer")
 	if resources:
 		resource_keys = resources.keys()
@@ -20,14 +21,18 @@ func _ready():
 				var progress_label = progress_bar.get_child(0)
 				progress_label.text = str(progress_bar.value) + '/' + str(progress_bar.max_value)
 				c_button.text = c_resource_name
+				
+
+				c_button.rotation = 90
+				
+				#c_button.position = progress_bar.global_postion + Vector2(0, -10)
+				
 				#var progress_bar = resource.get_node("ProgressBar") # Adjust the path as needed
-				c_button.connect("pressed", print_hi.bind(c_resource_name))
+				c_button.connect("pressed", generate_resource.bind(c_resource_name))
 				c_upgrade_button.connect("pressed", update_resource_max.bind(c_resource_name, 10))
 				if !can_create(c_resource_name):
-					print("nope")
 					c_button.disabled = true
-				else: 
-					print("yup")
+					
 
 
 func get_resource_amount(resource_name: String) -> int:
@@ -45,7 +50,7 @@ func update_subbar(delta, subbar):
 	value += delta *10
 	subbar.value = value 
 
-func print_hi(resource_name):
+func generate_resource(resource_name):
 	var bar = null
 	var bar_label = null
 	var resource = null
@@ -74,7 +79,6 @@ func print_hi(resource_name):
 			button.disabled = false
 			
 			for res in resources:
-				print(res)
 				if resources[res]['dependencies']:
 					for depend in resources[res]['dependencies']:
 						if depend == resource_name:

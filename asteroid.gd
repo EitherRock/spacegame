@@ -1,6 +1,7 @@
 extends Area2D
 
 var speed = 200
+var health = 5
 
 func _physics_process(delta):
 	position += Vector2(0, speed) * delta
@@ -21,6 +22,7 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	
 	if area.is_in_group("Bullets"):
-		print("bullets")
-		queue_free()
+		health -= 2
+		if health <= 0:
+			queue_free()
 
