@@ -6,24 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_6urgk"]
 radius = 12.0
 
-[sub_resource type="Animation" id="Animation_wd66y"]
-resource_name = "highlight"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("visuals:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.25, 1.25)]
-}
-
 [sub_resource type="Animation" id="Animation_4vffa"]
-length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -49,9 +33,26 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0.00392157)]
 }
 
+[sub_resource type="Animation" id="Animation_wd66y"]
+resource_name = "highlight"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visuals:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25)]
+}
+
 [sub_resource type="Animation" id="Animation_7pbpy"]
 resource_name = "select"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -87,6 +88,7 @@ _data = {
 }
 
 [node name="MapRoom" type="Area2D"]
+scale = Vector2(0.928, 1)
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_po884")

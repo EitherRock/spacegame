@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ship.gd" id="1_jjycs"]
 
 [node name="Ship" type="Area2D"]
-position = Vector2(2.08165e-12, 2.08165e-12)
+position = Vector2(352, 458)
 script = ExtResource("1_jjycs")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["Ship"]]

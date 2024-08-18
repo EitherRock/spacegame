@@ -59,17 +59,18 @@ func _on_input_event(viewport: Node, event: InputEvent, _shape_idx:int):
 	if not available or not event.is_action_pressed("left_mouse"):
 		return
 	
-	print("pressed")
+	print("Map room pressed")
 	room.selected = true
 	animation_player.play("select")
 	var timer = Timer.new()
 	timer.set_wait_time(2)  # Set the timer interval to 1 second
 	timer.set_one_shot(false)  # Make the timer repeat
 	 # Connect the timer's timeout signal to a method
+	timer.connect("timeout", _on_map_room_selected)
 	add_child(timer)  # Add the timer as a child of this node
 	timer.start() 
 	await timer
-	get_tree().change_scene_to_file("res://ship.tscn")
+	get_tree().change_scene_to_file("res://asteroid_map.tscn")
 	
 # called by the animation player when the 
 func _on_map_room_selected() -> void:

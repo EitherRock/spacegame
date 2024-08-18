@@ -8,8 +8,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#func _process(delta):
+	#pass
 
 
 func _on_button_pressed():
@@ -18,3 +18,7 @@ func _on_button_pressed():
 
 func _on_explore_button_pressed():
 	get_tree().change_scene_to_file("res://map.tscn")
+
+
+func _on_ship_pressed():
+	get_tree().change_scene_to_file("res://ship_control.tscn")

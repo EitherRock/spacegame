@@ -17,7 +17,6 @@ var last_room: Room
 var camera_edge_y: float
 
 func _ready() -> void:
-	print(camera_2d)
 	camera_edge_y = MapGenerator.Y_DIST * (MapGenerator.FLOORS - 1)
 	
 	generate_new_map()

@@ -77,5 +77,16 @@ layout_mode = 2
 text = "EXPLORE
 "
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Ship" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+text = "SHIP"
+
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/CaveButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/ExploreButton" to="." method="_on_explore_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/Ship" to="." method="_on_ship_pressed"]

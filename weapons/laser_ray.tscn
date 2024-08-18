@@ -1,0 +1,118 @@
+[gd_scene load_steps=16 format=3 uid="uid://bv3etj4h4c3c6"]
+
+[ext_resource type="Script" path="res://weapons/laser.gd" id="1_vvojh"]
+[ext_resource type="Texture2D" uid="uid://cqvbo28pv0ec7" path="res://glowing_circle.png" id="2_vaq43"]
+[ext_resource type="Texture2D" uid="uid://0lryhwwobh4j" path="res://weapons/glowing_circle.png" id="3_bhc88"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a3vdj"]
+
+[sub_resource type="Gradient" id="Gradient_3myn0"]
+colors = PackedColorArray(0.991164, 0.991164, 0.991164, 1, 1, 1, 1, 0.00392157)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mwl43"]
+gradient = SubResource("Gradient_3myn0")
+
+[sub_resource type="Curve" id="Curve_pjr8k"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.499264, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.35061, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4jhmj"]
+curve = SubResource("Curve_pjr8k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cuhq3"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, -1, 1)
+velocity_pivot = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+direction = Vector3(2.08165e-12, -1, 2.08165e-12)
+initial_velocity_min = 250.0
+initial_velocity_max = 250.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_curve = SubResource("CurveTexture_4jhmj")
+color = Color(0.0117647, 1, 1, 1)
+color_initial_ramp = SubResource("GradientTexture1D_mwl43")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l14ij"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gtv38"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, -1, 1)
+velocity_pivot = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+direction = Vector3(1, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 250.0
+initial_velocity_max = 250.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_curve = SubResource("CurveTexture_4jhmj")
+color = Color(0.0117647, 1, 1, 1)
+color_initial_ramp = SubResource("GradientTexture1D_mwl43")
+
+[sub_resource type="Curve" id="Curve_8tlte"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, -200), 0.0, 400.0, 0, 1, Vector2(1, 200), 400.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_halga"]
+curve = SubResource("Curve_8tlte")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r85rd"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(20, 2.08165e-12, 2.08165e-12)
+emission_shape_scale = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+emission_shape = 3
+emission_box_extents = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+velocity_pivot = Vector3(1, 1, 2.08165e-12)
+direction = Vector3(1, -1, 2.08165e-12)
+spread = 60.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+tangential_accel_min = 100.0
+tangential_accel_max = 100.0
+tangential_accel_curve = SubResource("CurveTexture_halga")
+
+[sub_resource type="Environment" id="Environment_xd8sw"]
+background_mode = 3
+glow_enabled = true
+glow_levels/4 = 1.0
+glow_strength = 1.38
+glow_blend_mode = 0
+glow_map_strength = 0.96
+
+[node name="Ray" type="RayCast2D" groups=["Laser"]]
+position = Vector2(305, 803)
+target_position = Vector2(2.08165e-12, -2000)
+collide_with_areas = true
+script = ExtResource("1_vvojh")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 2.08165e-12, -50)
+default_color = Color(0.00784314, 1, 1, 1)
+
+[node name="CastingParticle" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_a3vdj")
+emitting = false
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_cuhq3")
+texture = ExtResource("3_bhc88")
+lifetime = 0.3
+
+[node name="CollisionParticle" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_l14ij")
+emitting = false
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_gtv38")
+texture = ExtResource("2_vaq43")
+lifetime = 0.3
+
+[node name="BeamParticle" type="GPUParticles2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_l14ij")
+position = Vector2(-249, 75)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_r85rd")
+texture = ExtResource("3_bhc88")
+lifetime = 0.3
+visibility_rect = Rect2(-50, -50, 50, 50)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xd8sw")

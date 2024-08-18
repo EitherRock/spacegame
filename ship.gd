@@ -5,7 +5,7 @@ var screen_size
 var rotaion_speed: int = 1
 
 var bullet_scene = preload("res://bullet.tscn")
-var laser_scene = preload("res://weapons/laser.tscn")
+var laser_scene = preload("res://weapons/laser_ray.tscn")
 var bullet_speed = 500  # Speed of the bullet
 
 var spawn_interval = 1.0
@@ -13,8 +13,9 @@ var spawn_interval = 1.0
 # Create a new Timer instance
 var timer = Timer.new()
 var bullets: Array
-var laser: Area2D
+var laser: RayCast2D
 var has_laser: bool = true
+var has_bullets: bool = false
 
 
 func _ready():
@@ -23,6 +24,8 @@ func _ready():
 	
 	if has_laser:
 		laser = laser_scene.instantiate()
+		laser.enabled = true
+		print(laser)
 		laser.position = position  # Set laser's initial position to the ship's position
 		add_child(laser)
 		
@@ -36,11 +39,12 @@ func _ready():
 	
 	bullets = []
 	# Configure the timer
-	timer.set_wait_time(1)  # Set the timer interval to 1 second
-	timer.set_one_shot(false)  # Make the timer repeat
-	timer.connect("timeout", _on_timer_timeout)  # Connect the timer's timeout signal to a method
-	add_child(timer)  # Add the timer as a child of this node
-	timer.start()  # Start the timer
+	if has_bullets:
+		timer.set_wait_time(1)  # Set the timer interval to 1 second
+		timer.set_one_shot(false)  # Make the timer repeat
+		timer.connect("timeout", _on_timer_timeout)  # Connect the timer's timeout signal to a method
+		add_child(timer)  # Add the timer as a child of this node
+		timer.start()  # Start the timer
 
 func _on_Laser_Timer_timeout():
 	pass
@@ -88,5 +92,8 @@ func _on_area_entered(area):
 		for asteroid in get_tree().get_nodes_in_group("Asteroids"):
 			asteroid.queue_free()
 		print('Ship')
-		get_tree().change_scene_to_file("res://main.tscn")
+		self.call_deferred('change_scene')
+
+func change_scene():
+	get_tree().change_scene_to_file("res://main.tscn")
 		
