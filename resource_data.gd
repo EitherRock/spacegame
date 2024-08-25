@@ -131,4 +131,3 @@ func update_resource_max(resource_name: String, new_max: int) -> void:
 		bar.max_value += new_max
 		var bar_label = bar.get_child(0)
 		bar_label.text = str(bar.value)+'/'+str(bar.max_value)
-

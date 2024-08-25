@@ -1,8 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfojmf270w073"]
+[gd_scene load_steps=7 format=3 uid="uid://bfojmf270w073"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_v4k1a"]
+[ext_resource type="Texture2D" uid="uid://4xxwq4x2vftg" path="res://icon.svg" id="2_efjyv"]
+[ext_resource type="PackedScene" uid="uid://b34guu313kt8l" path="res://resource.tscn" id="3_meamc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvouy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kfs6"]
+bg_color = Color(0.154876, 0.154876, 0.154876, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77scx"]
+bg_color = Color(0.74902, 0.278431, 0.180392, 1)
+draw_center = false
+corner_radius_bottom_left = 5
+shadow_size = 4
+shadow_offset = Vector2(0, 10)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -82,11 +94,52 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Ship" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
-custom_minimum_size = Vector2(200, 100)
+[node name="CheckButton" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-text = "SHIP"
+
+[node name="TabBar" type="TabBar" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0.731051, 0.243649, 0.248861, 1)
+theme_override_constants/outline_size = 11
+theme_override_constants/h_separation = 5
+theme_override_constants/icon_max_width = 7
+max_tab_width = 10
+
+[node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_icons/menu = ExtResource("2_efjyv")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1kfs6")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_77scx")
+current_tab = 1
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Control"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 145.0
+offset_right = 399.0
+offset_bottom = 176.0
+text = "THIS IS A BUTTON"
+
+[node name="Control2" type="Control" parent="Panel/MarginContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="resource" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Control2" instance=ExtResource("3_meamc")]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 733.0
+offset_right = 73.0
+offset_bottom = 733.0
 
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/CaveButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/ExploreButton" to="." method="_on_explore_button_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/Ship" to="." method="_on_ship_pressed"]
+[connection signal="toggled" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/CheckButton" to="." method="_on_check_button_toggled"]

@@ -37,4 +37,3 @@ func apply_damage(amount):
 
 func die():
 	queue_free()
-

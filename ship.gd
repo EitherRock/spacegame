@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 200  # Speed of movement
+@export var speed = 200  # Speed of movement
 var screen_size
 var rotaion_speed: int = 1
 
@@ -14,11 +14,13 @@ var spawn_interval = 1.0
 var timer = Timer.new()
 var bullets: Array
 var laser: RayCast2D
-var has_laser: bool = true
-var has_bullets: bool = false
+var has_laser: bool = ShipValues.hasLaserBeam
+var has_bullets: bool = ShipValues.hasBullets
 
 
 func _ready():
+	print("Has laser", has_laser)
+	print("Has bullets", has_bullets)
 	# Get the viewport size to determine the screen boundaries
 	screen_size = get_viewport().get_visible_rect().size
 	
