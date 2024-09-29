@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 200  # Speed of movement
+@export var speed = 200  # Speed of movement
 var screen_size
 var rotaion_speed: int = 1
 
@@ -14,11 +14,13 @@ var spawn_interval = 1.0
 var timer = Timer.new()
 var bullets: Array
 var laser: RayCast2D
-var has_laser: bool = true
-var has_bullets: bool = false
+var has_laser: bool = ShipValues.hasLaserBeam
+var has_bullets: bool = ShipValues.hasBullets
 
 
 func _ready():
+	print("Has laser", has_laser)
+	print("Has bullets", has_bullets)
 	# Get the viewport size to determine the screen boundaries
 	screen_size = get_viewport().get_visible_rect().size
 	
@@ -89,11 +91,16 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	if area.is_in_group("Asteroid"):
 		print(len(get_tree().get_nodes_in_group("Asteroids")))
+		var count = 0
 		for asteroid in get_tree().get_nodes_in_group("Asteroids"):
+			count += 1
+			print(count)
 			asteroid.queue_free()
+			
 		print('Ship')
+		
 		self.call_deferred('change_scene')
 
 func change_scene():
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file("res://map.tscn")
 		

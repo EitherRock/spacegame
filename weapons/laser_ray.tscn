@@ -72,7 +72,6 @@ tangential_accel_curve = SubResource("CurveTexture_halga")
 
 [sub_resource type="Environment" id="Environment_xd8sw"]
 background_mode = 3
-glow_enabled = true
 glow_levels/4 = 1.0
 glow_strength = 1.38
 glow_blend_mode = 0

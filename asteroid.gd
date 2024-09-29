@@ -1,10 +1,12 @@
 extends Area2D
 
 var speed = 200
+@export var rotation_speed = .01
 @export var health = 100
 
 func _physics_process(delta):
 	position += Vector2(0, speed) * delta
+	rotation += rotation_speed
 	
 	# Check if the asteroid is outside the screen bounds
 	if position.y > get_viewport_rect().size.y:
@@ -37,4 +39,3 @@ func apply_damage(amount):
 
 func die():
 	queue_free()
-

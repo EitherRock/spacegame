@@ -1,21 +1,28 @@
 extends Node
 
-@export var resources = {}
+@export var resources = ResourceValues.resources
 var main = null
 var resource_keys = null
 
 func _ready():
-	print(resources)
-	main = get_node("mainContainer")
+
+	main = $".."
+	
 	if resources:
-		resource_keys = resources.keys()
+		var resource_keys = resources.keys()
 		for child in get_children():
 			for resource in child.get_children():
+				print("Resource")
+				print(resource)
+				resource.create_instance()
+				print(resource.get_instance_path())
 				var index = resource.get_index()
 				var c_resource_name = resource_keys[index]
+
+				#var c_button = %ResourceCreateButton
 				var c_button = resource.get_node("MarginContainer/ResourceContainer/Button")
-				var c_upgrade_button = resource.get_node("MarginContainer/ResourceContainer/UpgradeButton")
-				var progress_bar = resource.get_node("MarginContainer/ResourceContainer/VBoxContainer/ProgressBar")
+				var c_upgrade_button = resource.get_node("../../MarginContainer/ResourceContainer/UpgradeButton")
+				var progress_bar = resource.get_node("../../MarginContainer/ResourceContainer/VBoxContainer/ProgressBar")
 				progress_bar.value = get_resource_amount(c_resource_name)
 				progress_bar.max_value = get_resource_max(c_resource_name)
 				var progress_label = progress_bar.get_child(0)
@@ -37,6 +44,7 @@ func _ready():
 
 func get_resource_amount(resource_name: String) -> int:
 	if resources.has(resource_name):
+		print("we got it")
 		return resources[resource_name]["amount"]
 	return 0
 
@@ -131,4 +139,3 @@ func update_resource_max(resource_name: String, new_max: int) -> void:
 		bar.max_value += new_max
 		var bar_label = bar.get_child(0)
 		bar_label.text = str(bar.value)+'/'+str(bar.max_value)
-

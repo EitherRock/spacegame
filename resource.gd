@@ -35,6 +35,3 @@ func _on_button_pressed():
 	print("Resource type: %s" % resource_type)
 	print("Current resource value: %d" % resources[resource_type])
 	print("Max progress bar value: %d" % bar.max_value)
-
-
-
