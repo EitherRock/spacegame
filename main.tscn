@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_v4k1a"]
 [ext_resource type="Texture2D" uid="uid://4xxwq4x2vftg" path="res://icon.svg" id="2_efjyv"]
-[ext_resource type="PackedScene" uid="uid://b34guu313kt8l" path="res://resource.tscn" id="3_meamc"]
+[ext_resource type="Script" path="res://resource_data.gd" id="3_a0sed"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvouy"]
 
@@ -133,12 +133,28 @@ text = "THIS IS A BUTTON"
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="resource" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Control2" instance=ExtResource("3_meamc")]
-layout_mode = 0
-offset_left = 73.0
-offset_top = 733.0
-offset_right = 73.0
-offset_bottom = 733.0
+[node name="ResourceManager" type="Node" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Control2"]
+script = ExtResource("3_a0sed")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Control2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "text"
+
+[node name="Button2" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Control2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "text
+"
 
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/CaveButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/ExploreButton" to="." method="_on_explore_button_pressed"]

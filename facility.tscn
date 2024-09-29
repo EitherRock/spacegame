@@ -51,20 +51,6 @@ vertical_alignment = 1
 
 [node name="ResourceManager" type="Node" parent="Panel/MarginContainer/VBoxContainer"]
 script = ExtResource("3_omkxe")
-resources = {
-"metal": {
-"amount": 0,
-"dependencies": {
-"ore": 5
-},
-"max": 5
-},
-"ore": {
-"amount": 0,
-"dependencies": {},
-"max": 5
-}
-}
 
 [node name="mainContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ResourceManager"]
 anchors_preset = 2

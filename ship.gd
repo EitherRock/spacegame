@@ -91,11 +91,16 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	if area.is_in_group("Asteroid"):
 		print(len(get_tree().get_nodes_in_group("Asteroids")))
+		var count = 0
 		for asteroid in get_tree().get_nodes_in_group("Asteroids"):
+			count += 1
+			print(count)
 			asteroid.queue_free()
+			
 		print('Ship')
+		
 		self.call_deferred('change_scene')
 
 func change_scene():
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file("res://map.tscn")
 		

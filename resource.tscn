@@ -53,7 +53,7 @@ layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme_override_constants/separation = 3
 
-[node name="Button" type="Button" parent="MarginContainer/ResourceContainer"]
+[node name="ResourceCreateButton" type="Button" parent="MarginContainer/ResourceContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_r7krr")
