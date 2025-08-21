@@ -4,7 +4,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	#var facilityManager = FacilityManager.insta
+	for facility in $Facilities.get_children():
+		FacilityManager.register_facility(facility)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,7 +15,10 @@ func _ready():
 
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://facility.tscn")
+	#get_tree().change_scene_to_file("res://facility.tscn")
+	FacilityManager.switch_to_facility('Cave')
+	
+	
 
 
 func _on_explore_button_pressed():

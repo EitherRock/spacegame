@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dp2dmarftroga"]
 
-[ext_resource type="Script" path="res://ship_control.gd" id="1_w7c7j"]
+[ext_resource type="Script" uid="uid://dw25h1py6dtgn" path="res://ship/ship_control.gd" id="1_w7c7j"]
 
 [node name="ShipControl" type="Control"]
 layout_mode = 3

@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bajhex4ow34r3"]
-
-[ext_resource type="Script" path="res://back.gd" id="1_cobwr"]
+[gd_scene load_steps=3 format=3 uid="uid://bajhex4ow34r3"]
 
 [sub_resource type="Gradient" id="Gradient_h7k8q"]
 colors = PackedColorArray(0.377919, 0.377919, 0.377919, 1, 0.000333904, 0.000333904, 0.000333904, 1)
@@ -31,6 +29,5 @@ theme_override_font_sizes/font_size = 25
 text = "BACK"
 icon = SubResource("GradientTexture2D_8tai1")
 icon_alignment = 1
-script = ExtResource("1_cobwr")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

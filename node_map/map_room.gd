@@ -54,7 +54,7 @@ func set_room(new_data: Room) -> void:
 func show_selected() -> void:
 	line_2d.modulate = Color.WHITE
 
-func _on_input_event(viewport: Node, event: InputEvent, _shape_idx:int):
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx:int):
 # change for mobile
 	if not available or not event.is_action_pressed("left_mouse"):
 		return
@@ -69,7 +69,7 @@ func _on_input_event(viewport: Node, event: InputEvent, _shape_idx:int):
 	timer.connect("timeout", _on_map_room_selected)
 	add_child(timer)  # Add the timer as a child of this node
 	timer.start() 
-	await timer
+	#await timer
 	get_tree().change_scene_to_file("res://asteroid_map.tscn")
 	
 # called by the animation player when the 

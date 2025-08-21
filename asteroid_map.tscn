@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8wos2tl3ampv"]
 
-[ext_resource type="Script" path="res://asteroid_map.gd" id="1_tyo83"]
-[ext_resource type="PackedScene" uid="uid://42rvt4mssl58" path="res://ship.tscn" id="2_i6dn2"]
+[ext_resource type="Script" uid="uid://f5mlck7jd04d" path="res://asteroid_map.gd" id="1_tyo83"]
+[ext_resource type="PackedScene" uid="uid://42rvt4mssl58" path="res://ship/ship.tscn" id="2_i6dn2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6m528"]
 bg_color = Color(0.0196078, 0.0196078, 0.0196078, 1)

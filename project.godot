@@ -11,18 +11,21 @@ config_version=5
 [application]
 
 config/name="space"
-config/features=PackedStringArray("4.3", "Mobile")
+run/main_scene="uid://bfojmf270w073"
+config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 ResourceValues="*res://autos/resource_values.gd"
-ShipValues="*res://ship_values.gd"
+ShipValues="*res://ship/ship_values.gd"
+FacilityManager="*res://autos/facility_manager.gd"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
+window/stretch/mode="viewport"
 
 [input]
 

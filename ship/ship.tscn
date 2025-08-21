@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://42rvt4mssl58"]
 
-[ext_resource type="Script" path="res://ship.gd" id="1_jjycs"]
+[ext_resource type="Script" uid="uid://dmfb8mybij25r" path="res://ship/ship.gd" id="1_jjycs"]
 
 [node name="Ship" type="Area2D"]
 position = Vector2(352, 458)

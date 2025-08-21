@@ -49,7 +49,7 @@ func create_map() -> void:
 	
 	var map_width_pixels := MapGenerator.X_DIST * (MapGenerator.MAP_WIDTH - 1)
 	visuals.position.x = (get_viewport_rect().size.x - map_width_pixels) / 2
-	visuals.position.y = get_viewport_rect().size.y / 2
+	visuals.position.y = get_viewport_rect().size.y - MapGenerator.Y_DIST
 
 func unlock_floor(which_floor: int = floors_climbed) -> void:
 	for map_room: MapRoom in rooms.get_children():

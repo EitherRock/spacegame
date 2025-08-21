@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bv3etj4h4c3c6"]
 
-[ext_resource type="Script" path="res://weapons/laser.gd" id="1_vvojh"]
-[ext_resource type="Texture2D" uid="uid://cqvbo28pv0ec7" path="res://glowing_circle.png" id="2_vaq43"]
+[ext_resource type="Script" uid="uid://cqfd6rhmgbm66" path="res://weapons/laser.gd" id="1_vvojh"]
+[ext_resource type="Texture2D" uid="uid://cqvbo28pv0ec7" path="res://ship/glowing_circle.png" id="2_vaq43"]
 [ext_resource type="Texture2D" uid="uid://0lryhwwobh4j" path="res://weapons/glowing_circle.png" id="3_bhc88"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a3vdj"]
@@ -48,8 +48,7 @@ color = Color(0.0117647, 1, 1, 1)
 color_initial_ramp = SubResource("GradientTexture1D_mwl43")
 
 [sub_resource type="Curve" id="Curve_8tlte"]
-min_value = -200.0
-max_value = 200.0
+_limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, -200), 0.0, 400.0, 0, 1, Vector2(1, 200), 400.0, 0.0, 1, 0]
 point_count = 2
 

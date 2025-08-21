@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://biga5dfbluc4"]
 
-[ext_resource type="Script" path="res://bullet.gd" id="1_8kerc"]
+[ext_resource type="Script" uid="uid://b4pg44g74w25t" path="res://ship/bullet.gd" id="1_8kerc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wagje"]
 size = Vector2(35, 82)

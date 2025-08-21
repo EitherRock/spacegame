@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b34guu313kt8l"]
 
-[ext_resource type="Texture2D" uid="uid://4xxwq4x2vftg" path="res://icon.svg" id="1_i48ex"]
+[ext_resource type="Texture2D" uid="uid://4xxwq4x2vftg" path="res://icon.svg" id="1_dtidl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dqct"]
 
@@ -26,6 +26,10 @@ border_blend = true
 [node name="resource" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 187.0
+offset_top = 717.0
+offset_right = 187.0
+offset_bottom = 717.0
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(1, 0.4, 0.286275, 1)
@@ -83,6 +87,7 @@ vertical_alignment = 1
 [node name="ProgressBar2" type="ProgressBar" parent="MarginContainer/ResourceContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 20)
 layout_mode = 2
+step = 0.001
 show_percentage = false
 
 [node name="UpgradeButton" type="Button" parent="MarginContainer/ResourceContainer"]
@@ -91,7 +96,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/icon_max_width = 72
 theme_override_font_sizes/font_size = 1
-icon = ExtResource("1_i48ex")
+icon = ExtResource("1_dtidl")
 flat = true
 
 [node name="RemoteTransform2D" type="HBoxContainer" parent="MarginContainer/ResourceContainer"]

@@ -15,13 +15,8 @@ func _physics_process(delta):
 	if health <= 0:
 		print("asteroidn bye bye")
 		queue_free()
-	
-	
-	
-
 
 func _on_area_entered(area):
-	
 	if area.is_in_group("Bullets"):
 		health -= 2
 		if health <= 0:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfojmf270w073"]
+[gd_scene load_steps=8 format=3 uid="uid://bfojmf270w073"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_v4k1a"]
+[ext_resource type="Script" uid="uid://bv3usmo8dcoef" path="res://main.gd" id="1_v4k1a"]
+[ext_resource type="PackedScene" uid="uid://o6mqsgts57j7" path="res://facilities/facility.tscn" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://4xxwq4x2vftg" path="res://icon.svg" id="2_efjyv"]
-[ext_resource type="Script" path="res://resource_data.gd" id="3_a0sed"]
+[ext_resource type="Script" uid="uid://jd8e4yv4drn0" path="res://resources/resource_manager.gd" id="3_a0sed"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvouy"]
 
@@ -98,6 +99,7 @@ size_flags_vertical = 4
 layout_mode = 2
 
 [node name="TabBar" type="TabBar" parent="Panel/MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -108,6 +110,7 @@ theme_override_constants/icon_max_width = 7
 max_tab_width = 10
 
 [node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
@@ -155,6 +158,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "text
 "
+
+[node name="Facilities" type="Node" parent="."]
+
+[node name="Cave" parent="Facilities" instance=ExtResource("2_1bvp3")]
+facility_name = "Cave"
+allowed_resources = Array[String](["coal", "ore"])
+
+[node name="Smelter" parent="Facilities" instance=ExtResource("2_1bvp3")]
+facility_name = "Smelter"
+
+[node name="Processing" parent="Facilities" instance=ExtResource("2_1bvp3")]
+facility_name = "Processing"
 
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/CaveButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/ExploreButton" to="." method="_on_explore_button_pressed"]
