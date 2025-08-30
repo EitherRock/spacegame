@@ -2,8 +2,8 @@ class_name Map
 extends Node2D
 
 const SCROLL_SPEED :=15
-const MAP_ROOM = preload("res://map_room.tscn")
-const MAP_LINE = preload("res://map_line.tscn")
+const MAP_ROOM = preload("res://node_map/map_room.tscn")
+const MAP_LINE = preload("res://node_map/map_line.tscn")
 
 @onready var map_generator: MapGenerator = $MapGenerator
 @onready var lines: Node2D = %Lines

@@ -4,9 +4,9 @@ extends Area2D
 var screen_size
 var rotaion_speed: int = 1
 
-var bullet_scene = preload("res://bullet.tscn")
+var bullet_scene = preload("res://ship/bullet.tscn")
 var laser_scene = preload("res://weapons/laser_ray.tscn")
-var bullet_speed = 500  # Speed of the bullet
+var bullet_speed = 500
 
 var spawn_interval = 1.0
 

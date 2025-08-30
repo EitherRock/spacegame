@@ -4,11 +4,14 @@ var resources = {
 	"coal": {"amount": 0, "max":5, "dependencies": {}},
 	"ore": {"amount": 0, "max":5, "dependencies": {"coal": 5}},
 	"metal": {"amount": 0, "max":5, "dependencies": {"ore": 5}},
+	"material": {"amount": 0, "max": 5, "dependencies": {"metal": 5}},
+	"thing": {"amount": 0, "max": 5, "dependencies": {"metal": 5}},
 	"ship": {"amount": 0, "max":5, "dependencies": {"ore": 5}}
 }
 
 var facilities = {
 	"cave": ["coal", "ore"],
 	"smelter": ["metal"],
-	"processing": ['material']
+	"processing": ['material'],
+	"poop": ['thing', 'coal', 'ore', 'metal']
 }

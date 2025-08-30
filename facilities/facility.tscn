@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://o6mqsgts57j7"]
+[gd_scene load_steps=5 format=3 uid="uid://o6mqsgts57j7"]
 
 [ext_resource type="Script" uid="uid://bynqyy6kq2li6" path="res://facilities/facility.gd" id="1_me26m"]
 [ext_resource type="Script" uid="uid://jd8e4yv4drn0" path="res://resources/resource_manager.gd" id="3_omkxe"]
-[ext_resource type="PackedScene" uid="uid://b34guu313kt8l" path="res://resources/resource.tscn" id="3_x05ig"]
 [ext_resource type="PackedScene" uid="uid://bajhex4ow34r3" path="res://back.tscn" id="4_klbvo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4og3i"]
@@ -59,18 +58,6 @@ anchor_bottom = 1.0
 offset_right = 175.0
 grow_vertical = 0
 theme_override_constants/separation = 175
-
-[node name="Ore" parent="Panel/MarginContainer/VBoxContainer/ResourceManager/mainContainer" instance=ExtResource("3_x05ig")]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-
-[node name="Metal" parent="Panel/MarginContainer/VBoxContainer/ResourceManager/mainContainer" instance=ExtResource("3_x05ig")]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
